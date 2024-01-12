@@ -13,7 +13,119 @@
     <body>
         
         <div id="app">
-            
+            <div class="bg">
+                <header class="header-bg"></header> <!-- HEADER BG -->
+
+                <main>
+                    <div class="container">
+                        <div class="cont-chat">
+                            <div class="left-main">
+                                <header>
+                                    <div class="flex-header-left">
+                                        <div class="user">
+                                            <img src="./img/avatar_1.jpg" alt="avatar1">
+                                            <p class="user-name">Domenico</p>   
+                                        </div>
+
+                                        <div class="icon-user">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa-solid fa-circle-notch"></i>
+                                                </li>
+
+                                                <li>
+                                                    <i class="fa-solid fa-message"></i>
+                                                </li>
+
+                                                <li>
+                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <aside>
+                                    <div class="notifiche">
+                                        <div class="bell-unmute">
+                                            <i class="fa-solid fa-bell-slash"></i>
+                                        </div>
+
+                                        <div class="text-notifiche">
+                                            <p>Ricevi notifiche di nuovi messaggi</p>
+                                            <a href="#">Attiva notifiche desktop</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="search-bar-cont">
+                                        <span class="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                        <input class="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
+                                    </div>
+
+                                    <div class="contact-list">
+                                        <ul>
+                                            <li v-for="(elem, i) in contacts">
+                                                <div class="img-user">
+                                                    <img :src="contacts[i].avatar" alt="">
+                                                    <div>
+                                                        <p>{{ contacts[i].name }}</p>
+                                                        <p>Ultimo messaggio inviato</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="orario">
+                                                    <p>12:00</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </aside>
+
+                            </div>
+
+                            <div class="right-main">
+                                <header>
+                                    <div class="flex-header-right">
+                                        <div class="user-chat">
+                                            <img src="./img/avatar_1.jpg" alt="">
+                                            <div>
+                                                <p>Michele</p>
+                                                <p>Ultimo accesso oggi alle ore 12:23</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <section class="chat">
+                                    
+                                </section>
+
+
+
+
+
+                                <footer>
+                                    <div class="text-area">
+                                        <div class="emoji">
+                                            <i class="fa-regular fa-face-smile"></i>
+                                        </div>
+
+                                        <div class="text-bar">
+                                            <input type="text" placeholder="Scrivi un messaggio">
+                                        </div>
+
+                                        <div class="vocal">
+                                            <i class="fa-solid fa-microphone"></i>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+        
         </div>
 
         <!-- Importazione Vue -->
