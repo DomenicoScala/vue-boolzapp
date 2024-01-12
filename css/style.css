@@ -20,6 +20,7 @@ html {
 .container{
     max-width: 1000px;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 
@@ -46,6 +47,7 @@ html {
     position: relative;
     top: -70px;
     height: 100vh;
+    background-color: white;
 }
 
 
@@ -83,6 +85,7 @@ html {
     background-color: #EAEAEA;
     border-right: 0.5px solid rgba(161, 161, 161, 0.377);
     align-items: center;
+    height: 60px;
 }
 
 .user{
@@ -112,6 +115,7 @@ html {
     padding: 10px;
     display: flex;
     align-items: center;
+    height: 50px;
 }
 
 .text-notifiche > p{
@@ -138,6 +142,7 @@ html {
 .search-bar-cont{
     padding: 5px;
     background-color: #FAFAFA;
+    height: 30px;
 }
 
 .search-bar{
@@ -165,6 +170,7 @@ html {
 
 .contact-list{
     padding: 10px; 
+    height: calc(100% - 140px);
 }
 
 
@@ -226,6 +232,7 @@ html {
     padding: 8px;
     background-color: #EAEAEA;
     align-items: center;
+    height: 60px;
 }
 
 .user-chat > img{
@@ -251,16 +258,31 @@ html {
 }
 
 
-.chat{
-    height: calc(100% - 107px);
+.icon-header-right > ul{
+    list-style: none;
+    display: inline-block;
 }
+
+.icon-header-right > ul li{
+    display: inline-block;
+    margin: 0 8px;
+    color:#939393;
+}
+
+
+
+.chat{
+    height: calc(100% - 120px);
+    padding: 20px 30px;
+}
+
 
 
 .text-area{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 60px;
     background-color: #F3EEEA;
 }
 
@@ -274,4 +296,47 @@ html {
     padding: 10px;
     border: 1px solid rgba(179, 179, 179, 0.416);
     border-radius: 5px;
+}
+
+
+.single-message-container{
+    display: flex;
+}
+
+.single-message-container.send{
+    justify-content: flex-end;
+}
+
+.single-message-container.received{
+    justify-content: flex-start;
+}
+
+.single-message-container.send > .single-message-item{
+    padding: 10px;
+    max-width: 50%;
+    background-color:#D5F9BA;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    
+}
+
+.single-message-container.send > .single-message-item > .single-date{
+    text-align: end;
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+.single-message-container.received > .single-message-item{
+    padding: 10px;
+    max-width: 50%;
+    background-color:#ffffff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    
+}
+
+.single-message-container.received > .single-message-item > .single-date{
+    text-align: end;
+    margin-top: 5px;
+    font-size: 10px;
 }
