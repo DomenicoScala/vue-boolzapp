@@ -135,7 +135,7 @@
                                 </section>
 
 
-                                <!-- v-for="(msg,i) in currentContact.messages" -->
+    
 
 
                                 <footer>
@@ -145,7 +145,7 @@
                                         </div>
 
                                         <div class="text-bar">
-                                            <input type="text" placeholder="Scrivi un messaggio">
+                                            <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"  @keyup.enter="sendNewMessage()">
                                         </div>
 
                                         <div class="vocal">
