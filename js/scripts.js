@@ -5,8 +5,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            searchUser :'',
-            newMessage: '',
+            searchUser:'',
+            newMessage:'',
             contactsCounter: 0,
             contacts: [
                 {
@@ -176,30 +176,30 @@ createApp({
     methods:{
         changeActiveContact(index){
             this.contactsCounter = index;
+            console.log(this.changeActiveContact(index))
         },
         sendNewMessage(){
             const newMessageObj = {
-                date:this.getTheMoment(),
+                date: this.getTheMoment(),
                 message: this.newMessage,
-                status:'sent'
+                status: 'sent'
             }
-           
-            this.contacts[this.contactsCounter].messages.push(newMessageObj);
-            this.newMessage = '';
+
+            this.contacts[this.contactsCounter].messages.push(newMessageObj)
+            this.newMessage= '';
 
             setTimeout(() => {
                 newReceivedMessageObj = {
                     date: this.getTheMoment(),
-                    message: 'Ok',
+                    message:'Ok',
                     status: 'received'
                 };
-
                 this.contacts[this.contactsCounter].messages.push(newReceivedMessageObj)
             },1000)
         },
         searchContact(){
             const query = this.searchUser.toLowerCase();
-            for(let i = 0; i<this.contacts.length; i++){
+            for(let i = 0; i < this.contacts.length; i++){
                 if(this.contacts[i].name.toLowerCase().includes(query)){
                     this.contacts[i].visible = true;
                 }else{
@@ -227,8 +227,8 @@ createApp({
             
             return finalString;
         }
-        
-    }  
+
+    }
   // Monto l'istanza di Vue in pagina
 }).mount('#app');
 
