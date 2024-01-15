@@ -64,12 +64,12 @@
 
                                     <div class="contact-list">
                                         <ul>
-                                            <li v-for="(elem, i) in contacts">
+                                            <li v-for="(elem, i) in contacts" :class="i == contactsCounter ? 'active' : ''" @click="changeActiveContact(i)">
                                                 <div class="img-user">
                                                     <img :src="contacts[i].avatar" alt="">
                                                     <div>
                                                         <p>{{ contacts[i].name }}</p>
-                                                        <p>Ultimo messaggio inviato</p>
+                                                        <p></p>
                                                     </div>
                                                 </div>
 
@@ -87,9 +87,9 @@
                                 <header>
                                     <div class="flex-header-right">
                                         <div class="user-chat">
-                                            <img src="./img/avatar_1.jpg" alt="">
+                                            <img :src="contacts[contactsCounter].avatar" :alt="contacts[contactsCounter].name">
                                             <div>
-                                                <p>Michele</p>
+                                                <p>{{ contacts[contactsCounter].name }}</p>
                                                 <p>Ultimo accesso oggi alle ore 12:23</p>
                                             </div>
                                         </div>
@@ -111,31 +111,31 @@
                                 </header>
 
                                 <section class="chat">
-                                    <div class="single-message-container send">
+                                    <div class="single-message-container" v-for="(elemMessage,i) in contacts[contactsCounter].messages" :class="elemMessage.status == 'sent' ? 'send' : 'received'">
                                         <div class="single-message-item">
                                             <div class="single-text">
-                                                Ciao tutto bene?
+                                                {{ elemMessage.message }}
                                             </div>
                                             <div class="single-date">
-                                                15:00
+                                                {{ elemMessage.date }}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="single-message-container received">
+                                   <!--  <div class="single-message-container received">
                                         <div class="single-message-item">
                                             <div class="single-text">
-                                                Si, tutto bene
+                                                
                                             </div>
                                             <div class="single-date">
-                                                15:01
+                                                
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </section>
 
 
-
+                                <!-- v-for="(msg,i) in currentContact.messages" -->
 
 
                                 <footer>
