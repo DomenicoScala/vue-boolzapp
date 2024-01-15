@@ -5,6 +5,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            searchUser :'',
             newMessage: '',
             contactsCounter: 0,
             contacts: [
@@ -178,7 +179,7 @@ createApp({
         },
         sendNewMessage(){
             const newMessageObj = {
-                date:'15/01/2020 15:30:55',
+                date:this.getTheMoment(),
                 message: this.newMessage,
                 status:'sent'
             }
@@ -188,7 +189,7 @@ createApp({
 
             setTimeout(() => {
                 newReceivedMessageObj = {
-                    date: '15/01/2020 15:30:56',
+                    date: this.getTheMoment(),
                     message: 'Ok',
                     status: 'received'
                 };
@@ -196,9 +197,41 @@ createApp({
                 this.contacts[this.contactsCounter].messages.push(newReceivedMessageObj)
             },1000)
         },
+        searchContact(){
+            const query = this.searchUser.toLowerCase();
+            for(let i = 0; i<this.contacts.length; i++){
+                if(this.contacts[i].name.toLowerCase().includes(query)){
+                    this.contacts[i].visible = true;
+                }else{
+                    this.contacts[i].visible = false;
+                }
+            }
+        },
+        getTheMoment(){
+            let finalString = '';
+
+            const ora = new Date();
+
+            finalString += ora.getDate().toString().padStart(2, '0');
+            finalString += '/'
+            finalString += (ora.getMonth() + 1).toString().padStart(2, '0');
+            finalString += '/'
+            finalString += ora.getFullYear();
+            
+            finalString += ' ';
+            finalString += ora.getHours().toString().padStart(2, '0');
+            finalString += ':'
+            finalString += ora.getMinutes() .toString().padStart(2, '0');
+            finalString += ':'
+            finalString += ora.getSeconds() .toString().padStart(2, '0');
+            
+            return finalString;
+        }
         
-    }
+    }  
   // Monto l'istanza di Vue in pagina
 }).mount('#app');
+
+
 
 
